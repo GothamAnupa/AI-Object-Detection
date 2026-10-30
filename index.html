@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Object Detection</title>
+<meta name="description" content="Real-time object detection in your browser with YOLOv8. Your camera feed never leaves your device.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>AI Object <em>Detection</em></h1>
+  <p>YOLOv8 running inside your browser. Your camera and photos never leave your device.</p>
+</header>
+
+<main>
+  <section class="stage" aria-label="Detection view">
+    <div class="frame" id="frame">
+      <video id="video" playsinline muted></video>
+      <img id="photo" alt="Uploaded photo" hidden>
+      <canvas id="overlay"></canvas>
+      <div class="placeholder" id="placeholder">
+        <b id="status">Loading model…</b>
+        <span id="substatus">about 12 MB, loaded once</span>
+      </div>
+    </div>
+    <div class="meter" aria-live="polite"><span id="fps">– fps</span><span id="ms">– ms per frame</span><span id="total">0 objects</span></div>
+  </section>
+
+  <aside class="panel" aria-label="Controls">
+    <div class="row">
+      <button id="camBtn" class="primary" disabled>Start camera</button>
+      <label class="file">Upload photo<input id="file" type="file" accept="image/*" disabled></label>
+    </div>
+
+    <label class="switch"><input type="checkbox" id="detectToggle" checked><span class="track"></span><span class="lbl">Detection on</span></label>
+
+    <label class="slider">Frames per second <output id="fpsOut">5</output>
+      <input type="range" id="fpsRange" min="1" max="15" value="5">
+    </label>
+    <label class="slider">Minimum confidence <output id="confOut">50%</output>
+      <input type="range" id="confRange" min="10" max="90" value="50">
+    </label>
+    <label class="switch"><input type="checkbox" id="mirror" checked><span class="track"></span><span class="lbl">Mirror camera</span></label>
+
+    <h2>Found now</h2>
+    <ul id="counts" class="counts"><li class="empty">Nothing yet</li></ul>
+
+    <p class="hint">Lower the frame rate if your device gets warm. Works in current Chrome, Edge, Firefox and Safari, on desktop and mobile.</p>
+  </aside>
+</main>
+
+<footer>
+  Model: YOLOv8n (80 everyday object types) · Runtime: ONNX Runtime Web · Built by Gotham Anupa ·
+  <a href="https://github.com/GothamAnupa/ai-object-detection">source</a>
+</footer>
+
+<script src="vendor/ort.wasm.min.js"></script>
+<script src="labels.js"></script>
+<script src="detect.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

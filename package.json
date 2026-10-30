@@ -1,0 +1,8 @@
+{
+  "name": "ai-object-detection",
+  "version": "1.0.0",
+  "description": "Real-time object detection in the browser with YOLOv8 and ONNX Runtime Web",
+  "private": true,
+  "scripts": { "test": "node --test tests/detect.test.js" },
+  "dependencies": { "onnxruntime-web": "1.31.1" }
+}
