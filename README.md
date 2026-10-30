@@ -33,11 +33,9 @@ Import the repository into Vercel (or GitHub Pages / Netlify). Leave the framewo
     npm install
     npm test                 # tests for letterboxing, IoU, NMS and box decoding
 
-## Honest notes
+##  Notes
 - YOLOv8n is the smallest YOLOv8 model, chosen so it runs on phones and laptops. It is less accurate than larger models and only knows the 80 COCO object types.
 - Speed depends on the device: about 0.5 to 1 second per frame on a slow cloud CPU, much faster on a modern laptop or phone. The runs here use one CPU thread.
 - The model is YOLOv8n from Ultralytics (AGPL-3.0 licence). If you reuse this commercially, check that licence.
-- Inspired by [w00000dy/ai-object-detection](https://github.com/w00000dy/ai-object-detection), which does browser camera detection with ml5.js. This version was written from scratch and uses a different model and runtime.
 
-## Related
-[Detector Stress Test](https://github.com/GothamAnupa/detector-stress-test) measures how blur, noise and compression hurt this same model.
+
